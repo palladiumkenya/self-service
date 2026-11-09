@@ -1,4 +1,5 @@
 import logging
+from urllib.parse import urlsplit
 
 from flask import current_app, redirect
 from flask_appbuilder.const import AUTH_OAUTH
@@ -21,10 +22,13 @@ class AuthOIDCView(AuthOAuthView):
     def oauth_authorized(self, provider):
         response = super().oauth_authorized(provider)
         landing_page = current_app.config.get("POST_LOGIN_PATH")
+        # Anonymous visits to "/" arrive with next=/superset/welcome/, so that counts
+        # as the default destination too. Other next URLs are real deep links.
+        default_paths = {self.appbuilder.get_url_for_index, "/superset/welcome/"}
         if (
             landing_page
             and current_user.is_authenticated
-            and response.location == self.appbuilder.get_url_for_index
+            and urlsplit(response.location).path in default_paths
         ):
             return redirect(landing_page)
         return response
