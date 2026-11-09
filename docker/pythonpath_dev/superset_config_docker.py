@@ -42,7 +42,7 @@ if AUTH_TYPE == AUTH_OAUTH:
         }
     ]
 
-FAB_API_SWAGGER_UI = True
+FAB_API_SWAGGER_UI = False
 
 ENABLE_PROXY_FIX = True
 PROXY_FIX_CONFIG = {"x_for": 1, "x_proto": 1, "x_host": 1, "x_port": 0, "x_prefix": 1}
