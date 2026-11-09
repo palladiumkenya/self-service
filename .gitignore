@@ -1,0 +1,4 @@
+docker/.env-non-dev
+docker/pythonpath_dev/client_secret.json
+__pycache__/
+*.pyc
