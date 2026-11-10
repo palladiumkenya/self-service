@@ -70,8 +70,3 @@ The script accepts `pg_dump` custom-format files and plain `.sql` files. It **re
 ## Network
 
 The app is published on `127.0.0.1:8088` by default. Set `SUPERSET_PUBLISH` to change it, and put a TLS reverse proxy in front.
-
-## Known limits
-
-- The Kenya country map and NASCOP logo need the custom frontend work.
-- Screenshot and PDF reports need a browser, which the image does not include.
