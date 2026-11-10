@@ -78,3 +78,5 @@ WEBDRIVER_OPTION_ARGS = [
     "--disable-setuid-sandbox",
     "--disable-extensions",
 ]
+
+SUPERSET_WEBSERVER_TIMEOUT = 300
